@@ -10,18 +10,15 @@ data class Employee(val name: String, val age: Int)
 import Employee
 import kotlin.math.min
 
-fun littelEmployeeAge(usersAge: List<Employee>): Int{
+fun littelEmployeeAge(usersAge: List<Employee>): Int? {
 
-    val minAge = mutableListOf(0)
+    val minAge = mutableListOf<Int>()
 
     for (userAge in usersAge)
         minAge.add(userAge.age)
-
-
-    val result: Int = 0
+    val result = minAge.toList().minOrNull()
 
     return result
-
 }
 
 fun main() {
