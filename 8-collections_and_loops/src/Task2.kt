@@ -14,14 +14,14 @@ fun littelEmployeeAge(usersAge: List<Employee>): Int{
 
     val minAge = mutableListOf(0)
 
-    for (userAge in usersAge) {
+    for (userAge in usersAge)
         minAge.add(userAge.age)
 
 
-    val result: Int = minAge.MIN_VALUE
+    val result: Int = 0
 
     return result
-    }
+
 }
 
 fun main() {
