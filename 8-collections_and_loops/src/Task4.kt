@@ -7,7 +7,33 @@
 Написать функцию, которая на вход принимает объект класса Department и возвращает средний возраст сотрудников этого отдела
 Проверить работу написанной функции на примере каких-нибудь входных данных.
 */
+import Department
+import Employee
+
+fun averageAgeDepartment(users:List<Department>): Int {
+
+    var sumAge: Int = 0
+    var i: Int = 0
+    val dep: String = readLine().toString()
+    for (user in users)
+        when(dep){
+            user.name -> sumAge += user.employees[i].age
+        }
+    return sumAge/users.size
+}
 
 fun main() {
 
+    val user1 = Employee("Lee", 22)
+    val user2 = Employee("Den", 28)
+    val user3 = Employee("Joe", 23)
+    val user4 = Employee("Sue", 35)
+    val users1 = mutableListOf(user1, user2)
+    val users2 = mutableListOf(user3, user4)
+
+    val poolDep1 = Department("Dep1", users1)
+    val poolDep2 = Department("Dep2", users2)
+    val poolDeps = mutableListOf(poolDep1, poolDep2)
+
+    println(averageAgeDepartment(poolDeps))
 }
