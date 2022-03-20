@@ -17,18 +17,23 @@ import Employee
 
 fun totalNumberOfEmployees(company: Company): Int{
 
-    var counter: Int = 0
+/*    var counter: Int = 0
     var i: Int = 0
     while (i < company.departments.size){
         company.departments[i].employees.forEach{u -> if (company.departments[i].employees.size != 0) counter += 1}
         i ++
     }
+    return counter*/
+
+    var counter: Int = 0
+    for (dep in company.departments)
+        counter += dep.employees.size
     return counter
 }
 
-fun averageAgeOfEmployees(company: Company): Int{
+fun averageAgeOfEmployees(company: Company): Double{
 
-    var counter: Int = 0
+/*    var counter: Int = 0
     var i: Int = 0
     while (i < company.departments.size){
         var i2: Int = 0
@@ -38,7 +43,16 @@ fun averageAgeOfEmployees(company: Company): Int{
         }
         i++
     }
-    return counter
+    return counter*/
+
+    var counter: Int = 0
+    var sumAge: Int = 0
+    for (dep in company.departments)
+        for (emp in dep.employees){
+            counter++
+            sumAge += emp.age
+        }
+    return sumAge.toDouble()/counter.toDouble()
 }
 
 fun main() {
@@ -52,17 +66,13 @@ fun main() {
     val user7 = Employee("LeeL", 32)
 //    val user8 = Employee("DenN", 34)
 
-    val users1 = mutableListOf(user1, user2, user5, user7)
-    val users2 = mutableListOf(user3, user4, user6)
-//    val users3 = mutableListOf(user8)
+    val poolDep1 = Department("Dep1", mutableListOf(user1, user2, user5, user7))
+    val poolDep2 = Department("Dep2", mutableListOf(user3, user4, user6))
+//  val poolDep3 = Department("Dep3", users3)
 
-    val poolDep1 = Department("Dep1", users1)
-    val poolDep2 = Department("Dep2", users2)
-//    val poolDep3 = Department("Dep3", users3)
-    val poolDeps = mutableListOf(poolDep1, poolDep2)
 
-    val com = Company("BEst Com", poolDeps)
+    val com = Company("BEst Com", listOf(poolDep1, poolDep2))
 
     println("Total workers - ${totalNumberOfEmployees(com)}")
-    println("Middle age workers - ${averageAgeOfEmployees(com).toDouble()/totalNumberOfEmployees(com).toDouble()}")
+    println("Middle age workers - ${averageAgeOfEmployees(com)}")
 }
