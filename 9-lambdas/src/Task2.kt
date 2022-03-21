@@ -34,6 +34,7 @@ fun containsElement(users: List<User>, condition: (User) -> Boolean): Boolean{
     for (user in users)
         if (condition(user))
             return true
+
     return false
 }
 
