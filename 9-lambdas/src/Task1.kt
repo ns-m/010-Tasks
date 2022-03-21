@@ -11,6 +11,16 @@ fun convertToStrings(users: List<User>, conversion: (User) -> String): List<Stri
 
 import User
 
+fun convertToStrings(users: List<User>, conversion: (User) -> String): List<String>{
+
+    val result = mutableListOf<String>()
+    for (user in users) {
+        val stringList = conversion(user)
+        result.add(stringList)
+    }
+    return result
+}
+
 fun main() {
     
     val user1 = User("Lee", 32)
@@ -20,5 +30,9 @@ fun main() {
     val user5 = User("JoeS", 33)
     val user6 = User("SueS", 45)
     val user7 = User("LeeL", 32)
-    
+    val userList = mutableListOf(user1, user2, user3, user4, user5, user6, user7)
+
+    val convertToString = convertToStrings(userList){"${it.name} ${it.age}"}
+
+    println(convertToString)
 }
