@@ -11,3 +11,38 @@
 
 Для этой задачи есть видео с разбором.
 */
+import kotlin.math.PI
+
+open class Figure(val color: String, val x: Int, val y: Int){
+
+}
+
+class Round(color: String, x: Int, y: Int): Figure(color, x, y){
+
+    val radius: Int = 0
+    fun square(){
+        println(Math.PI * radius * radius)
+    }
+    fun lengthCircle(){
+        println(2 * Math.PI * radius)
+    }
+}
+
+class Rectangle(color: String, x: Int, y: Int): Figure(color, x, y){
+
+    val width: Int = 0
+    val height: Int = 0
+    fun rectangleArea(){
+        println(width * height)
+    }
+    fun rectanglePerimeter(){
+        println(2 * (width + height))
+    }
+    fun square(): Boolean{
+        return width == height
+    }
+}
+
+fun main(){
+
+}

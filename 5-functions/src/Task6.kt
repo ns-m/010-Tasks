@@ -16,7 +16,7 @@ Boolean (доступно ему это авто или нет)
 
 fun main() {
 
-    val modelAuto = readln()
+    val modelAuto:String = readLine().toString()
     val age = readLine()!!.toInt()
     val drivingExperience = readLine()!!.toInt()
 
