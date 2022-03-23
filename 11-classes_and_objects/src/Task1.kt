@@ -7,6 +7,27 @@
 Для этой задачи есть видео с разбором.
 */
 
-fun main() {
+class Rectangle(
+    val width: Int = 0,
+    val height: Int = 0
+){
+    fun rectangleArea(){
+        println(width * height)
+    }
+    fun rectanglePerimeter(){
+        println(2 * (width + height))
+    }
+    fun square(): Boolean{
+        return width == height
+    }
+}
 
+fun main() {
+    val inputWidth: Int = readLine()!!.toInt()
+    val inputHeight: Int = readLine()!!.toInt()
+    val calculation = Rectangle(inputWidth, inputHeight)
+
+    calculation.rectangleArea()
+    calculation.rectanglePerimeter()
+    println(calculation.square())
 }
