@@ -13,13 +13,28 @@
 */
 import kotlin.math.PI
 
-open class Figure(val color: String, val x: Int, val y: Int){
+open class Figure(val color: String){
+
+    var x: Int = 0
+    var y: Int = 0
+    fun moveLeft(step: Int){
+        x-= step
+    }
+    fun moveRight(step: Int){
+        x+= step
+    }
+    fun moveDown(step: Int){
+        y+= step
+    }
+    fun moveUp(step: Int){
+        y-= step
+    }
 
 }
 
-class Round(color: String, x: Int, y: Int): Figure(color, x, y){
+class Round(color: String): Figure(color){
 
-    val radius: Int = 0
+    val radius: Int = readLine()!!.toInt()
     fun square(){
         println(Math.PI * radius * radius)
     }
@@ -28,10 +43,10 @@ class Round(color: String, x: Int, y: Int): Figure(color, x, y){
     }
 }
 
-class Rectangle(color: String, x: Int, y: Int): Figure(color, x, y){
+class Rectangle(color: String): Figure(color){
 
-    val width: Int = 0
-    val height: Int = 0
+    val width: Int = readLine()!!.toInt()
+    val height: Int = readLine()!!.toInt()
     fun rectangleArea(){
         println(width * height)
     }
@@ -45,4 +60,8 @@ class Rectangle(color: String, x: Int, y: Int): Figure(color, x, y){
 
 fun main(){
 
+    val useRound = Round(readLine().toString())
+    val useRectangle = Rectangle(readLine().toString())
+    useRound.moveDown(5)
+    useRectangle.square()
 }
