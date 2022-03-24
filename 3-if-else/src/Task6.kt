@@ -14,7 +14,7 @@
 fun main() {
 
     println("введите желаемую марку авто (лат-ей)")
-    val modelAuto = readln()
+    val modelAuto = readLine()
     println("введите возраст")
     val age = readLine()!!.toInt()
     println("введите водительский стаж")
