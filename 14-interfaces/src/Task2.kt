@@ -4,6 +4,7 @@
 
 Для этой задачи есть видео с разбором.
 */
+/*
 import Movable
 
 class Animal(val name: String, var x: Int = 0, var y: Int = 0): Movable{
@@ -22,4 +23,4 @@ class Animal(val name: String, var x: Int = 0, var y: Int = 0): Movable{
     override fun moveUp(step: Int) {
         y += step
     }
-}
+}*/
