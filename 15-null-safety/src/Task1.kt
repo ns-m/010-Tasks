@@ -19,7 +19,14 @@ fun findEmployeeBySalary(employees: List<SomeEmployee>, age: Int): SomeEmployee?
 */
 
 fun main() {
-
+    val user1 = SomeEmployee("Lee", 320)
+    val user2 = SomeEmployee("Den", 480)
+    val user3 = SomeEmployee("Joe", 330)
+    val user4 = SomeEmployee("Sue", 450)
+    val userList = mutableListOf(user1, user2, user3, user4)
+    val inputSalary: Int = readLine()!!.toInt()
+    val emp = findEmployeeBySalary(userList, inputSalary)
+    emp?.callToClient("Best client")
 }
 
 class SomeEmployee(
@@ -30,4 +37,11 @@ class SomeEmployee(
     fun callToClient(clientName: String) {
         println("Сотрудник ${name}: звоню клиенту $clientName")
     }
+}
+
+fun findEmployeeBySalary(employees: List<SomeEmployee>, salary: Int): SomeEmployee? {
+    for (emp in employees)
+        if (emp.salary == salary)
+           return emp
+    return null
 }
