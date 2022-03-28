@@ -146,6 +146,7 @@ fun main(){
 
 }*/
 
+/*
 abstract class Employee(val name: String, val salary: Int) {
     protected val projects: MutableList<String> = mutableListOf<String>()
     abstract fun startProject(projectName: String)
@@ -204,6 +205,7 @@ interface ClientsWorcker{
 }
 
 fun main(){
+*/
 /*    val programmer1 = Programmer("Lee", 320)
     val programmer2 = Programmer("Den", 480)
     val programmer3 = Programmer("Joe", 330)
@@ -219,7 +221,8 @@ fun main(){
     programmer3.startProject("'Project 'Flashmobe''")
     programmer5.startProject("'Project 'Black Sea''")
     programmer5.startProject("'Project 'Blue fish''")
-    manager1.startProject("'Project 'Barbarian''")*/
+    manager1.startProject("'Project 'Barbarian''")*//*
+
 
     val robot1 = Robot(101)
     robot1.callToClient("Some company")
@@ -231,4 +234,25 @@ fun main(){
     for (clWrc in clientsWorcker)
         clWrc.callToClient("Very impotant client")
 
+}
+*/
+
+/*
+fun main(){
+    val inputChildrensCounter: Int? = null
+    val childrenCounter = inputChildrensCounter ?: 0
+}*/
+
+class Rectangle(val x: Int, val y: Int){
+    fun rectangleArea(){
+        println(x*y)
+    }
+}
+
+fun main(){
+    val rectangle: Rectangle? = null
+/*    if (rectangle != null){
+        rectangle.rectangleArea()
+    }*/
+    rectangle?.rectangleArea()
 }
