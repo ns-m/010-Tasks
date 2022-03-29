@@ -243,6 +243,7 @@ fun main(){
     val childrenCounter = inputChildrensCounter ?: 0
 }*/
 
+/*
 class Rectangle(val x: Int, val y: Int){
     fun rectangleArea(){
         println(x*y)
@@ -251,8 +252,48 @@ class Rectangle(val x: Int, val y: Int){
 
 fun main(){
     val rectangle: Rectangle? = null
+*/
 /*    if (rectangle != null){
         rectangle.rectangleArea()
-    }*/
+    }*//*
+
     rectangle?.rectangleArea()
+}*/
+
+/*
+fun main(){
+    val xString = "r10r"
+    val y = 5
+    try {
+        val x = xString.toInt()
+        val result = x/y
+        println(result)
+    }catch (e: Exception){
+        println(e.toString())
+    }catch (e: NumberFormatException){
+        println(e.toString())
+    }
+}*/
+
+fun singIn(login: String, password: String, confirmPass: String){
+    if (login.length < 5)
+        throw Exception("Login too short")
+    if (password.length > 20)
+        throw Exception("Password too long")
+    if (password != confirmPass)
+        throw Exception("Confirm password fail")
+
+    //send data "sing in" to server
+}
+
+fun main(){
+    val login = readLine().toString()
+    val password = readLine().toString()
+    val confirmPass = readLine().toString()
+
+    try {
+        singIn(login, password, confirmPass)
+    }catch (e: Exception){
+        println(e.message)
+    }
 }
