@@ -11,15 +11,32 @@ p.s. здесь речь не идет о том, что такой вариан
 */
 
 fun main() {
-
+    val user1 = SomeEmployee("Lee", 320)
+    val user2 = SomeEmployee("Den", 480)
+    val user3 = SomeEmployee("Joe", 330)
+    val user4 = SomeEmployee("Sue", 450)
+    val userList = mutableListOf(user1, user2, user3, user4)
+    val inputSalary: Int = readLine()!!.toInt()
+    try {
+        val emp = findEmployeeBySalary(userList, inputSalary)
+        emp.callToClient("Best client")
+    }catch (e: Exception){
+        println(e.message)
+    }
 }
 
 class SomeEmployee(
         val name: String,
         val salary: Int
 ) {
-
     fun callToClient(clientName: String) {
         println("Сотрудник ${name}: звоню клиенту $clientName")
     }
+}
+
+fun findEmployeeBySalary(employees: List<SomeEmployee>, salary: Int): SomeEmployee {
+    for (emp in employees)
+        if (emp.salary == salary)
+            return emp
+    throw Exception("No found employee with salary - $salary")
 }

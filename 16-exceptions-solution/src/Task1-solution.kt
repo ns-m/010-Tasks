@@ -26,6 +26,7 @@ fun main() {
     val employees = listOf(employee1, employee2, employee3)
     try {
         val result = findEmployeeBySalary(employees, 170000)
+        result.callToClient("Super client")
     }catch (e: Exception){
         println(e.message)
     }
